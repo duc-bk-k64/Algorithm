@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.Random;
 
 public class Chromosome {
-	private static int size =150;
+	private static int size = 51;
 	private ArrayList<Integer> vertex;
 	public static ArrayList<Point> data;
 
@@ -26,11 +26,13 @@ public class Chromosome {
 	public Chromosome() {
 
 	}
+
 	public Chromosome create() {
-		ArrayList<Integer> litsArrayList=new ArrayList<>();
-		for(int i=1;i<=size;i++) litsArrayList.add(i);
+		ArrayList<Integer> litsArrayList = new ArrayList<>();
+		for (int i = 1; i <= size; i++)
+			litsArrayList.add(i);
 		Collections.shuffle(litsArrayList);
-		Chromosome newchChromosome=new Chromosome(litsArrayList);
+		Chromosome newchChromosome = new Chromosome(litsArrayList);
 		return newchChromosome;
 	}
 
@@ -38,7 +40,7 @@ public class Chromosome {
 		ArrayList<Integer> a = new ArrayList<>();
 		Random random = new Random();
 		int cr = random.nextInt(size - 1); // generate random 0<cr<n
-		//System.out.println(cr);
+		// System.out.println(cr);
 		for (int i = 0; i < cr; i++) {
 			a.add(p.vertex.get(i));
 		}
@@ -59,37 +61,39 @@ public class Chromosome {
 	}
 
 	public Chromosome mutation(Chromosome p) {
-		ArrayList<Integer> z = p.getVertex();
+		ArrayList<Integer> z = new ArrayList<>();
+		for(int i=0;i<size;i++) z.add(p.getVertex().get(i));
 		Random random = new Random();
 		int g = random.nextInt(size - 1);
 		int h = random.nextInt(size - 1);
-		//System.out.println(h+" "+g);
+		// System.out.println(h+" "+g);
 		Collections.swap(z, g, h);
 		Chromosome chromosome = new Chromosome(z);
 		return chromosome;
 	}
 
 	public double fitness(Chromosome p) {
-		double sum=0.0;
-		for (int i = 0; i < p.getVertex().size()-1; i++) {
-			sum+=point.distance(data.get(p.vertex.get(i)),data.get(p.vertex.get(i+1)));
+		double sum = 0.0;
+		for (int i = 0; i < p.getVertex().size() - 1; i++) {
+			sum += point.distance(data.get(p.vertex.get(i)), data.get(p.vertex.get(i + 1)));
 		}
-		sum+=point.distance(data.get(p.vertex.get(0)),data.get(p.vertex.get(p.getVertex().size()-1)));
+		sum += point.distance(data.get(p.vertex.get(0)), data.get(p.vertex.get(p.getVertex().size() - 1)));
 		return -sum;
 	}
 
 	@SuppressWarnings("static-access")
 	public void loadVertex() throws Exception {
-		this.data = point.readData("D:/ch150.tsp.txt");
+		this.data = point.readData("D:/eil51.tsp.txt");
 	}
-	public double compare(Chromosome a,Chromosome b) {
-		return a.fitness(a)-a.fitness(b);
+
+	public double compare(Chromosome a, Chromosome b) {
+		return a.fitness(a) - a.fitness(b);
 	}
 
 	public void printf() {
 		// System.out.println(this.vertex.length);
 		for (int i = 0; i < this.vertex.size(); i++) {
-			System.out.print(this.vertex.get(i)+" ");
+			System.out.print(this.vertex.get(i) + " ");
 		}
 		System.out.println();
 	}

@@ -5,7 +5,7 @@ import java.util.Comparator;
 import java.util.Random;
 
 public class Population {
-	private int size =1000;
+	private int size =1500;
 	private ArrayList<Chromosome> population;
 	private Chromosome chromosome = new Chromosome();
 	private Random random = new Random();

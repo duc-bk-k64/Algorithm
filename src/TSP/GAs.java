@@ -28,7 +28,7 @@ public class GAs {
 	}
 	public static void main(String args[]) throws Exception {
 		GAs gAs=new GAs();
-		gAs.algorithms(2000,0.7,0.1);
+		gAs.algorithms(2000,0.8,0.05);
 	}
 
 }
