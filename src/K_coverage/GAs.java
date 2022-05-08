@@ -13,11 +13,12 @@ public class GAs {
 			population.select();
 			population.getBest().print();
 			System.out.println("Generation " + k + " Fitness value:" + population.getBest().fitness());
+			population.print();
 		}
 	}
 
 	public static void main(String args[]) {
 		GAs gAs = new GAs();
-		gAs.solve(2000, 0.8, 0.2);
+		gAs.solve(10, 0.8, 0.2);
 	}
 }

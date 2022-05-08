@@ -88,7 +88,7 @@ public class Population {
 			}
 
 		});
-		ArrayList<Individual> childPopulation = new ArrayList<>(); // select best individual for child population
+		ArrayList<Individual> childPopulation = new ArrayList<>(); //select best individual for child population
 		for (int i = 0; i < size; i++)
 			childPopulation.add(this.population.get(i));
 		this.population = childPopulation;
@@ -113,13 +113,13 @@ public class Population {
 			this.population.get(i).print();
 	}
 
-	public static void main(String args[]) {
-		Population population = new Population();
-		population.init();
-		population.caculateProbaly();
-		population.crossover(0.8);
-		population.mutation(0.2);
-		population.print();
-	}
+//	public static void main(String args[]) {
+//		Population population = new Population();
+//		population.init();
+//		population.caculateProbaly();
+//		population.crossover(0.8);
+//		population.mutation(0.2);
+//		population.print();
+//	}
 
 }

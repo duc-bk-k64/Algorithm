@@ -162,16 +162,16 @@ public class Individual {
 		return result;
 	}
 
-	public static void main(String args[]) {
-		Individual individual = new Individual();
-		ArrayList<Integer> list = new ArrayList<>();
-		list.add(1);
-		list.add(1);
-		list.add(1);
-		individual.setChromosome(list);
-		individual.print();
-		individual.readData(null);
-		System.out.println(individual.fitness());
+//	public static void main(String args[]) {
+//		Individual individual = new Individual();
+//		ArrayList<Integer> list = new ArrayList<>();
+//		list.add(1);
+//		list.add(1);
+//		list.add(1);
+//		individual.setChromosome(list);
+//		individual.print();
+//		individual.readData(null);
+//		System.out.println(individual.fitness());
 
 //		Individual gen1=individual.create();
 //		Individual gen2=individual.create();
@@ -182,6 +182,6 @@ public class Individual {
 //		System.out.println(gen1.fitness());
 //		System.out.println(gen2.fitness());
 
-	}
+//	}
 
 }
