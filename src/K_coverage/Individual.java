@@ -10,8 +10,8 @@ public class Individual {
 	private ArrayList<Integer> chromosome;
 	public static ArrayList<Target> targets;
 	public static ArrayList<Sensor> position;
-	public static int k = 3; // k-coverage
-	public static int m = 3; // m-connected
+	public static int k = 2; // k-coverage
+	public static int m = 2; // m-connected
 
 	public Individual() {
 

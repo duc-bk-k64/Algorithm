@@ -40,10 +40,10 @@ public class Population {
 						k = i;
 				}
 
-				Individual individual1 = this.population.get(h).crossover(this.population.get(k));
-				Individual individual2 = this.population.get(k).crossover(this.population.get(h));
-				this.population.add(individual1);
-				this.population.add(individual2);
+				Individual individual1 = this.population.get(h);//.crossover(this.population.get(k));
+				Individual individual2 = this.population.get(k);//.crossover(this.population.get(h));
+				this.population.add(individual1.crossover(individual2));
+				this.population.add(individual2.crossover(individual1));
 			}
 		}
 
@@ -54,8 +54,8 @@ public class Population {
 			double x = random.nextDouble();
 			if (x < pm) {
 				int h = random.nextInt(size - 1);
-				Individual individual1 = this.population.get(h).mutation();
-				this.population.add(individual1);
+				Individual individual1 = this.population.get(h);//.mutation();
+				this.population.add(individual1.mutation());
 			}
 		}
 	}
