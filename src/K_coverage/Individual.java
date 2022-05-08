@@ -5,13 +5,13 @@ import java.util.Random;
 
 public class Individual {
 	// public static ArrayList<Sensor> data;
-	public static int K = 3; // number of potentiol position
-	public static int N = 2; // number of targets
+	public static int K =10; // number of potentiol position
+	public static int N = 5; // number of targets
 	private ArrayList<Integer> chromosome;
 	public static ArrayList<Target> targets;
 	public static ArrayList<Sensor> position;
-	public static int k = 2; // k-coverage
-	public static int m = 2; // m-connected
+	public static int k = 3; // k-coverage
+	public static int m = 3; // m-connected
 
 	public Individual() {
 
@@ -78,24 +78,19 @@ public class Individual {
 
 	public void readData(String url) {
 		// read data from file txt
-
-		Target target1 = new Target();
-		target1.setX(0.5);
-		target1.setY(0.0);
-		Target target2 = new Target();
-		target2.setX(0.0);
-		target2.setY(0.5);
-		ArrayList<Target> listTargets = new ArrayList<>();
-		listTargets.add(target1);
-		listTargets.add(target2);
+        ArrayList<Target> listTargets = new ArrayList<>();
+        for(int i=0;i<N;i++) {
+		Target target = new Target();
+		target.setX(i+0.5);
+		target.setY((double)i);
+		listTargets.add(target);
+        }
 		Individual.setTargets(listTargets);
-		Sensor sensor1 = new Sensor(0.0, 0.0, 1.0, 2.0);
-		Sensor sensor2 = new Sensor(1.0, 0.0, 1.0, 2.0);
-		Sensor sensor3 = new Sensor(0.0, 3.0, 1.0, 2.0);
 		ArrayList<Sensor> list = new ArrayList<>();
-		list.add(sensor1);
-		list.add(sensor2);
-		list.add(sensor3);
+		for(int i=0;i<K;i++) {
+		Sensor sensor = new Sensor((double)i+1,(double)i, 1.0, 2.0);
+		list.add(sensor);
+		}
 		Individual.setPosition(list);
 	}
 
@@ -108,7 +103,8 @@ public class Individual {
 		if (cost >= Individual.k)
 			return Individual.k;
 		else
-			return Individual.k - cost;
+			//return Individual.k - cost;
+			return cost;
 	}
 
 	public int ComCost(int j) {
@@ -121,7 +117,8 @@ public class Individual {
 		if (cost >= Individual.m)
 			return Individual.m;
 		else
-			return Individual.m - cost;
+			//return Individual.m - cost;
+			return cost;
 
 	}
 
@@ -166,12 +163,13 @@ public class Individual {
 //		Individual individual = new Individual();
 //		ArrayList<Integer> list = new ArrayList<>();
 //		list.add(1);
-//		list.add(1);
-//		list.add(1);
+//		list.add(0);
+//		list.add(0);
 //		individual.setChromosome(list);
 //		individual.print();
 //		individual.readData(null);
 //		System.out.println(individual.fitness());
+//	}
 
 //		Individual gen1=individual.create();
 //		Individual gen2=individual.create();

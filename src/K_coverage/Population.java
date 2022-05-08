@@ -7,7 +7,7 @@ import java.util.Random;
 
 public class Population {
 	public ArrayList<Individual> population;
-	public static int size = 5;
+	public static int size =100;
 	public Individual individual = new Individual();
 	public Random random = new Random();
 	public ArrayList<Double> p;
@@ -28,14 +28,14 @@ public class Population {
 				x = random.nextDouble();
 				int h = 0, k = 0; // h,k denote individual are selected
 
-				for (int i = 1; i < this.population.size(); i++) {
+				for (int i = 1; i < size; i++) {
 					if (x > this.p.get(i - 1) && x <= this.p.get(i))
 						h = i;
 				}
 
 				x = random.nextDouble();
 
-				for (int i = 1; i < this.population.size(); i++) {
+				for (int i = 1; i < size; i++) {
 					if (x > this.p.get(i - 1) && x <= this.p.get(i))
 						k = i;
 				}
@@ -80,11 +80,11 @@ public class Population {
 				Double a = p.fitness();
 				Double b = q.fitness();
 				if (a.compareTo(b) > 0)
-					return 1;
+					return -1;
 				else if (a.compareTo(b) == 0)
 					return 0;
 				else
-					return -1;
+					return 1;
 			}
 
 		});
