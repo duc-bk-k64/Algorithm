@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Individual {
-	// public static ArrayList<Sensor> data;
 	public static int K =10; // number of potentiol position
 	public static int N = 5; // number of targets
 	private ArrayList<Integer> chromosome;

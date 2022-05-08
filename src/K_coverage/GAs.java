@@ -13,7 +13,6 @@ public class GAs {
 			population.select();
 			population.getBest().print();
 			System.out.println("Generation " + k + " Fitness value:" + population.getBest().fitness());
-		//	population.print();
 		}
 	}
 
