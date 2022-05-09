@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Individual {
-	public static int K =10; // number of potentiol position
-	public static int N = 5; // number of targets
+	public static int K =100; // number of potentiol position
+	public static int N =25; // number of targets
 	private ArrayList<Integer> chromosome;
 	public static ArrayList<Target> targets;
 	public static ArrayList<Sensor> position;
@@ -139,22 +139,26 @@ public class Individual {
 
 	public double fitness() {
 		int M = 0;
+		double w1=0.2,w2=0.4,w3=0.4;
 		for (int i = 0; i < K; i++) { // object 1: minimmum selcted node
 			if (this.chromosome.get(i) != 0)
 				M++;
 		}
-		double result = 1 - (float) M / K;
+		if(M==0) {
+			return -1.0;
+		}
+		double result = w1*(1 - (double) M / K);
 		int sumCov = 0;
 		for (int i = 0; i < N; i++) { // object 2: k-coverage
 			sumCov += this.CovCost(i);
 		}
-		result += (float) sumCov / (N * k);
+		result += w2*(double) sumCov / (N * k);
 		int sumCom = 0;
 		for (int i = 0; i < K; i++) {
 			if (this.chromosome.get(i) != 0)
 				sumCom += this.ComCost(i);
 		}
-		result += (float) sumCom / (M * m);
+		result += w3*(double) sumCom / (M * m);
 		return result;
 	}
 

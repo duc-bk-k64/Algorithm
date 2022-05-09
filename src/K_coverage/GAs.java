@@ -18,6 +18,6 @@ public class GAs {
 
 	public static void main(String args[]) {
 		GAs gAs = new GAs();
-		gAs.solve(100, 0.8, 0.2);
+		gAs.solve(1000, 0.8, 0.2);
 	}
 }
